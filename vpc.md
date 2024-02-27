@@ -217,7 +217,7 @@ Flow Logs is a feature that enables you to capture information about the IP tra
         * DHCP traffic / reserved IP Address (five addresses I believe ?)
 To query VPC Flow Logs, we can use Athena on S3 or CloudWatch Logs Insights
 
-Bastion Hosts
+### Bastion Hosts
 * We use a Bastion Host to SSH into our private instances
 * The bastion is in the public subnet which is then connected to all other private subnets
 * Bastion Host security group must be tightened
@@ -225,7 +225,7 @@ Bastion Hosts
 * We cannot use a NAT Gateway as a Bastion host.
 Exam Tip: Make sure the bastion host only has port 22 traffic from the IP you need, not from the security groups of your other instances
 
-Site-to-Site VPN
+### Site-to-Site VPN
 Virtual Private Gateway
     * VPN concentrate on the AWS side of the VPN connection
     * VGW is created and attached to the VPC from which you want to create the Site-to-Site VPN connection
@@ -236,8 +236,9 @@ Customer Gateway
         * Use static, internet-routable IP address for your customer gateway device
         * if a CGW behind NAT (NAT-T), use the public IP address of the NAT
 
-Direct Connect
+### Direct Connect
 AWS Direct Connect is a cloud service solution that makes it easy to establish a dedicated network connection from your premises to AWS. Therefore, we can establish private connectivity between AWS and your datacenter, office, or colocation environment, which in many cases can reduce your network costs, increase bandwidth throughput and provide a more consistent network experience than Internet-based connections.
+
 * Provides a dedicated private connection from a remote network to your VPC
 * Dedicated connection must be set up between your DC and AWS Direct Connect locations
 * You need to set up a Virtual Private Gateway on your VPC
@@ -247,16 +248,18 @@ AWS Direct Connect is a cloud service solution that makes it easy to establish a
     * More consistent network experience - applications using real-time data feeds
     * Hybrid Environments (on-prem + cloud)
 * Supports both IPv4 and IPv6
+  
 If you want to set up a Direct Connect to one or more VPC in many different regions (same account), you must use a Direct Connect Gateway
 
-Direct Connect - Connection Types
-Dedicated Connections
-* Physical Ethernet port dedicated to a customer
-* Request made to AWS first, then completed by Direct Connect Partners
-Hosted Connections
-* Connection requests are made via AWS Direct Connect Partners
-* Capacity can be added or removed on demand
-* 1,2,5,10 Gbps available at select AWS Direct Connection Partners
+Direct Connect - Connection Types:
+* Dedicated Connections
+   * Physical Ethernet port dedicated to a customer
+   * Request made to AWS first, then completed by Direct Connect Partners
+* Hosted Connections
+   * Connection requests are made via AWS Direct Connect Partners
+   * Capacity can be added or removed on demand
+   * 1,2,5,10 Gbps available at select AWS Direct Connection Partners
+
 Lead times are often longer than 1 month to establish a new connection
 
 Direct Connect - Encryption
@@ -272,7 +275,7 @@ Egress means Outgoing
 * Egress Only Internet Gateway gives our IPv6 instances access to the internet, but they won’t be directly reachable by the internet
 * After creating an Egress only Internet Gateway, edit the route tables
 
-AWS PrivateLink (VPC Endpoints Services)
+### AWS PrivateLink (VPC Endpoints Services)
 ￼
 * Most secure & scalable way o expose a service to 1000s of VPC (own or other accounts)
 * Does not require VPC Peering, Internet Gateway, NAT, Route Tables
@@ -283,12 +286,12 @@ AWS PrivateLink (VPC Endpoints Services)
 
 ***Likely to be distractors at the exam***
 
-VPN CloudHub
+### VPN CloudHub
 * Provide secure communication between sites, if you have multiple VPN connections
 * Low-cost hub-and-spoke model for primary or secondary network connectivity between locations
 * it’s a VPN connection so it goes over the public internet
 
-Transit Gateway
+### Transit Gateway
 Connects your VPCs and on-premises networks through a central hub. This simplifies your network and puts an end to complex peering relationships. It acts as a cloud router – each new connection is only made once.
 * For having transitive peering between thousands of VPC and on-premises, hub-and-spoke (star) connection
 * Regional resource, can work cross-region
@@ -297,14 +300,15 @@ Connects your VPCs and on-premises networks through a central hub. This simplifi
 * Route Tables: limit which VPC can talk with other VPC
 * Works with Direct Connect Gateway, VPN connections
 * Supports IP Multicast (not supported by any other AWS service)
+
 Another use case for Transit Gateway is to increase the bandwith of your site-to-site VPN connection using ECMP.
 * ECMP = Equal-cost multi-path routing
 * Routing strategy to allow to forward a packet over multiple best path
 * Use case: create multiple Site to-Site VPN connections to increase the bandwidth of your connection to AWS
+
 You can share your direct connect connection between multiple accounts using Transit Gateway.
 
-VPC Section Summary
-Service	Description
+### VPC Section Summary
 CIDR	IP Range
 VPC	Virtual Private Cloud => we define a list of IPv4 & IPv6 CIDR
 Subnets	Tied to an AZ, we define a CIDR
