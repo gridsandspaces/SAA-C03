@@ -1,7 +1,7 @@
 # Serverless
 
 ### What is serverless?
-serverless was pioneered by AWS Lambda but now also includes the idea that “no self-managed databases, messaging, storage, etc..”
+Serverless was pioneered by AWS Lambda but now also includes the idea that “no self-managed databases, messaging, storage, etc..”
  
 ### AWS Lambda
 Why do we use AWS Lambda?
@@ -17,19 +17,6 @@ with AWS Lambda:
 * Allocated memory (range: 128 MB to 3 GB)
 * Ability to deploy within a VPC + assign security groups
 * IAM execution role must be attached to the Lambda function
-
-### AWS Lambda Limits to Know
-Execution
-* Memory allocation: 128 MB to 3008 MB (64 MB increments)
-* Maximum execution time: 300 seconds (5 minutes)
-* Disk capacity in the “function container”: 512 MB
-* # of Concurrency limits: 1000
-
-Deployment
-* Lambda function deployment size (compressed .zip): 50 MB
-* Size of uncompressed deployment (code + dependencies): 250 MB
-* Can use the /tmp directory to load other files at startup
-* Size of environment variables: 4 KB
 
 Lambda@Edge
 With Lambda@Edge, you can deploy Lambda functions alongside your CloudFront CDN
