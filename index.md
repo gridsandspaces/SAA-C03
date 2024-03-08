@@ -8,6 +8,8 @@
 - **Unpredictable / Sporadic** = Serverless
 - **Pick TWO/THREE** - Pay attention here
 - Eliminate obviously wrong options
+- Look out for negative questions **NOT**
+
 
 ## Organizations
 - Central management of all AWS accounts
@@ -21,6 +23,7 @@
 - Consolidated billing info on tagged resources
 	- Select user-defined tags
 	- Activate tags in the management account
+
 
 ## Corporate Accounts
 - Enterprise Identity Federation
@@ -41,9 +44,11 @@
 		- Sign in with well-known social IDPs
 		- Facebook, Google, Amazon
 
+
 ## High Availability
 - Ensure apps and DBs are multi-AZ or multi-region
 - Scaling Policies
+
 
 ## Disaster Recovery
 - Backup & Restore - Hours
@@ -53,22 +58,30 @@
 - Recovery Point Objective (RPO) - How much data can you lose?
 - Recovery Time Objective (RTO) - How quickly can you recover?
 
+
 ## General Security
 - MOST secure, don't expose credentials = Use IAM roles
 	- Associate with EC2 instance profile
 - Defense-In-Depth = Keep things private
 - GuardDuty - Monitor for malicious activity
 - Inspector - Monitor for software vulnerabilities
-- Trusted Advisor - recommendations on a variety of cost, availability and security topics
+- Trusted Advisor - Recommendations on a variety of cost, availability and security topics
+
 
 ------------- 
+
+
 ## API Gateway
 - API Gateway to ECS - Create a VPC endpoint
 - Reduce latency, geo distributed = Edge-optimised endpoint
 - Use canary deployments to roll out a new API version
+- Use caching to reduce load
+- Custom authorizers (JWT, IAM)
+
 
 ## Artifact
 - Generate and download compliance reports
+
 
 ## Athena
 - Glue Data Catalog Query
@@ -76,12 +89,15 @@
 	- Tap into existing relational, non-relational and custom sources
 	- Use a connector to tap into the data source
 
+
 ## Certificate Manager
 - 3rd party cert, create locally and import to ACM
+
 
 ## CloudFormation
 - Use a `CreationPolicy` to signal that a resource is ready
 	- Stack creation will proceed after the event
+
 
 ## CloudFront
 - Use ACM to create a cert and use DNS validation
@@ -104,11 +120,13 @@
 	- Up to 100 domains are allowed
 	- Apply as alternate domain names on the distro
 
+
 ## Control Tower
 - Used for managing multiple AWS accounts
 - Automated the creation of landing zones
 - Implements account best-practices with blueprints
 - Extends AWS Organizations
+
 
 ## Cost Explorer
 - Visualize, understand and analyz costs and usage
@@ -117,10 +135,12 @@
 - Pagination of large data sets
 - Can forecast usage based on past numbers, doesn't require AWS Forecast 
 
+
 ## DocumentDB
 - Supports MongoDB compatability
 - Document database service
 - Highly available, fully managed
+
 
 ## DynamoDB
 - Improve response time, decrease latency, least overhead
@@ -151,6 +171,7 @@
 		- You must set initial capacity values
 		- Adjusts settings dynamically to handle load
 		- Manually adjusted using `UpdateTable` operations
+
 
 ## EC2
 - Instance Types:
@@ -216,13 +237,16 @@
 	- Create a new launch template
 	- Select an updated AMI version
 
+
 ## Elastic Beanstalk
 - Supports Apache Tomcat
+
 
 ## Elastic Container Service (ECS)
 - Invoke tasks using EventBridge events
 - Use a Lambda to trigger StartTask
 - Associate a role using `taskRoleArn` in the task definition
+
 
 ## Elastic Kubernetes Service (EKS)
 - View insights from EKS and On-Prem = EKS Connector
@@ -230,6 +254,7 @@
 - EKS Secrets, configure to use KMS and Secrets Manager
 	- Reference the EKS etcd key-value store
 - Can be used with Fargate
+
 
 ## ElastiCache
 - Redis
@@ -246,8 +271,10 @@
 	- Large nodes, multi-core, threads
 	- Scale in and out
 
+
 ## EventBridge
 - Monitor whether events are being sent = CloudWatch Metrics
+
 
 ## Fargate
 - Works with both ECS and Kubernetes
@@ -256,10 +283,12 @@
 - Selects the right amount of compute
 - Pay for what you use
 
+
 ## Global Accelerator
 - Supports TCP/UDP
 - Good for streaming services, gaming
 - Routes traffic onto AWS network as soon as possible
+
 
 ## Glue ETL
 - Create and manage ETL jobs
@@ -271,6 +300,7 @@
 - Bookmarking can be used to keep track of job progress
 	- Restarts continue in the correct location
 	- Avoids replay of old data
+
 
 ## Identity Access Management (IAM)
 - IAM Access Analyzer - Identity Access Issues, Least Privilege
@@ -286,6 +316,7 @@
 	- Role escalation / assume role
 	- Cognito and Identity Center are just for Auth
 
+
 ## Key Management Service (KMS)
 - Multi-Regions Keys - Replicate keys
 	- Can't convert single to multi
@@ -293,6 +324,7 @@
 	- KMS Custom Key Store
 		- Use AWS CloudHSM for storage
 		- Use an external key store
+
 
 ## Kinesis Streaming
 - Will always reference a Kinesis service
@@ -308,10 +340,12 @@
 	- EC2
 	- Lambda
 
+
 ## Lake Formation
 - Relational DB permissions model for data catalogs
 - Define policies and control data access
 - Permissions on catalog objects
+
 
 ## Lambda
 - Reduce start-up latency, Java runtime = SnapStart
@@ -321,6 +355,7 @@
 - Permissions must be applied to the execution role
 - Can use a Compute Savings Plan
 - Can be placed in an existing VPC or default
+
 
 ## Load Balancers
 - Application Load Balancer - HTTP/S, WebSocket
@@ -333,6 +368,7 @@
 - SSL Certificates
 	- You can upload multiple certs and bind them to one listener
 	- The ALB will select the correct cert using Server Name Indication (SNI)
+
 
 ## On-Prem Notes
 - Sending data to AWS = Use a Storage Gateway
@@ -349,6 +385,7 @@
 	- VPN Connection to Virtual Private Gateway
 - 1 Gbps upload can be considered fast
 
+
 ## Rekognition
 - Two types:
 	- Rekognition Image
@@ -361,6 +398,7 @@
 	- Comprehend = Language processing, identify meaning and insights
 	- Polly = Text to audio
 	- Lex = For creating chatbots
+
 
 ## RDS
 - TYPES
@@ -401,11 +439,13 @@
 	- Gathered from the instance agent
 	- Used for total memory, CPU bandwidth
 
+
 ## RDS Database Migration Service
 - Supports Same (Oracle to Oracle) or  (Diff) Oracle to Aurora
 - Continuously replicate data
 - Stream data to Redshift or S3
 - Schema Conversion Tool (SCT)
+
 
 ## RDS Aurora
 - Cost optimization, time-boxed usage
@@ -426,6 +466,7 @@
 	- Use the AWS Database Migration Service
 	- Its not possible to convert from one type to another
 
+
 ## Route 53
 - Routing Policies
 	- Simple
@@ -440,6 +481,7 @@
 	- IP-Based
 	- MultiValue - Many possible IPs
 	- Weighted
+
 
 ## Simple Storage Service (S3)
 - Store petabytes of data
@@ -484,11 +526,13 @@
 	- Uses simple SQL expressions
 	- Requires the bucket and object key
 
+
 ## Snow Family
 - Snowcone - 8-14TB
 - Snowball - 1-80TB
 	- Tape Gateway
 - Snowmobile - 100PB
+
 
 ## SNS
 - Standard Topic
@@ -502,6 +546,7 @@
 - SMS Messages
 - Mobile Push Notifications
 - Email Alerts
+
 
 ## SQS
 - Keeps messages up to 14 days
@@ -519,6 +564,7 @@
 	- High throughput
 	- Exactly once
 	- Maintains order
+
 
 ## Storage Solutions
 - EBS - Volume attached to an instance
@@ -541,6 +587,7 @@
 		- Active Directory auth
 	- Lustre - High Performance, ML, Big Data
 
+
 ## Systems Manager
 - AppConfig
 	- Configuration management
@@ -561,9 +608,11 @@
 - Patch Manager
 	- Deploy OS and software patches to instances
 
+
 ## Transfer Family
 - Secure FTP Services
 - Move files to S3 or EFS
+
 
 ## Virtual Private Cloud (VPC)
 - Connect to DynamoDB or S3 = Gateway Endpoint
@@ -601,6 +650,7 @@
 	- Allow AND Deny
 	- Rules are evaluated in order
 		- First match wins
+
 
 ## VPN (Site-to-Site)
 - Requires a Virtual Private Gateway in AWS
