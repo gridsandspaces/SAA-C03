@@ -131,6 +131,10 @@
 	- Pre-initialized EC2 instances that sits alongside an ASG
 	- Draw on the warm pool to meet its new desired capacity
 	- States: Stopped, Running, Hibernating
+- Cooldown period
+	- By default, the cooldown period is set to 300 seconds (5 minutes)
+	- Can only be set after the ASG is created
+	- Prevents ASGs from launching or terminating additional instances before the effects of previous activities are visible
 - Health Checks
 	- Check status of instances
 - Events
